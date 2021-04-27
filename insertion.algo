@@ -1,0 +1,27 @@
+PROCEDURE raed_array(var arr:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO arr.length-1 STEP 1  DO
+       read arr[i]
+    END_FOR
+END
+
+ALGORITHM insertion
+VAR
+    cards : ARRAY_OF INTEGER[];
+    i := 0 : INTEGER;
+    j := 0 : INTEGER;
+    temp := 0 : INTEGER;
+BEGIN
+    read_array(cards)
+    FOR i FROM 1 TO cards.length-1 STEP 1  DO
+        temp := cards[i];
+        j := i-1;
+        WHILE (j >= 0 && cards[j]>temp) DO
+            cards[j+1] := cards[j];
+            j--;
+        END_WHILE
+        cards[j+1] := temp;
+    END_FOR
+END
